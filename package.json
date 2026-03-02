@@ -1,0 +1,25 @@
+{
+  "name": "user-authentication",
+  "version": "1.0.0",
+  "description": "A full-stack user authentication system built using Node.js, Express, and MongoDB. The application allows users to register and log in with unique email validation, demonstrating backend API development, database integration, and basic frontend form handling using HTML and CSS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/payalgatkal23/User-Authentication.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/payalgatkal23/User-Authentication/issues"
+  },
+  "homepage": "https://github.com/payalgatkal23/User-Authentication#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.2.3"
+  }
+}
