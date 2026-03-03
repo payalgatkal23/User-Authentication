@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/user.js");
-const path = require("path");
 
 const app = express();
 const port = 3000;
@@ -9,7 +8,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 mongoose
   .connect("mongodb://localhost:27017/L_R_Info")
