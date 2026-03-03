@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const user = require("./models/user.js");
+const User = require("./models/user.js");
 const path = require("path");
 
 const app = express();
@@ -18,6 +18,7 @@ mongoose
 
 app.post("/register", async (req, res) => {
   try {
+     const { email, password } = req.body;
     const user = new User({ email, password });
     await user.save();
     res.send("user Registered successfully");
