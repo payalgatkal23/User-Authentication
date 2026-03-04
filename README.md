@@ -27,6 +27,4 @@ Users can **register and log in** with unique email validation, demonstrating ba
 ## Optional Next Steps (Future Improvements)
 
 - Implement **password hashing** using bcrypt for security  
-- Add **JWT or session-based authentication**  
 - Enhance frontend with **responsive design**  
-- Deploy project online using **Heroku** or **Render** for live demo  
