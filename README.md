@@ -28,3 +28,14 @@ Users can **register and log in** with unique email validation, demonstrating ba
 
 - Implement **password hashing** using bcrypt for security  
 - Enhance frontend with **responsive design**  
+
+## Run Project
+
+```bash
+npm install
+node server.js
+
+## Author
+
+Payal Gatkal  
+GitHub: [payalgatkal23](https://github.com/payalgatkal23)
