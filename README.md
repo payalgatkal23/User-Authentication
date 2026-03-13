@@ -53,15 +53,6 @@ project
 
 ---
 
-## How It Works
-
-1. User enters email and password in the **React form**.  
-2. React sends data to the **Express API** using Axios.  
-3. Express processes the request and interacts with **MongoDB using Mongoose**.  
-4. The server sends a response back to React which is displayed to the user.
-
----
-
 ## Run the Project
 
 ### Install backend dependencies
