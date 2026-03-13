@@ -1,41 +1,101 @@
 # User Authentication System
 
-A full-stack **user authentication system** built using **Node.js, Express, and MongoDB**.  
-Users can **register and log in** with unique email validation, demonstrating backend API development, database integration, and basic frontend form handling using HTML and CSS.
+A simple **MERN stack user authentication system** built using **React, Node.js, Express, and MongoDB**.  
+Users can **register and log in** using their email and password. The project demonstrates **REST API development, React frontend integration, and MongoDB database operations**.
 
 ---
 
 ## Features
 
-- **User registration** with unique email validation  
-- **Login authentication** with email and password  
-- **Frontend** built using HTML & CSS  
-- **Backend** powered by Node.js and Express  
-- **MongoDB** used to store user credentials  
-- **Express middleware** (`express.json()` and `express.urlencoded()`) used for handling form data  
+- User **registration** with unique email validation  
+- User **login authentication**  
+- **React frontend** for login and register forms  
+- **Express backend APIs** for authentication  
+- **MongoDB database** to store user credentials  
+- **Axios** used in React to communicate with backend APIs  
 
 ---
 
 ## Tech Stack
 
-- **Backend:** Node.js, Express  
-- **Database:** MongoDB, Mongoose  
-- **Frontend:** HTML, CSS  
+### Frontend
+- React
+- Axios
+- React Router
+
+### Backend
+- Node.js
+- Express
+
+### Database
+- MongoDB
+- Mongoose
 
 ---
 
-## Optional Next Steps (Future Improvements)
+## Project Structure
 
-- Implement **password hashing** using bcrypt for security  
-- Enhance frontend with **responsive design**  
+```
+project
+│
+├── models
+│   └── user.js
+│
+├── server.js
+│
+└── client
+    └── src
+        ├── components
+        │   ├── Login.js
+        │   └── Register.js
+        └── App.js
+```
 
-## Run Project
+---
+
+## How It Works
+
+1. User enters email and password in the **React form**.  
+2. React sends data to the **Express API** using Axios.  
+3. Express processes the request and interacts with **MongoDB using Mongoose**.  
+4. The server sends a response back to React which is displayed to the user.
+
+---
+
+## Run the Project
+
+### Install backend dependencies
 
 ```bash
 npm install
+```
+
+### Start backend server
+
+```bash
 node server.js
+```
+
+### Start React frontend
+
+```bash
+cd client
+npm install
+npm start
+```
+
+---
+
+## Future Improvements
+
+- Add **password hashing using bcrypt**
+- Implement **JWT authentication**
+- Improve **UI design**
+- Add **protected routes**
+
+---
 
 ## Author
 
-Payal Gatkal  
-GitHub: [payalgatkal23](https://github.com/payalgatkal23)
+**Payal Gatkal**  
+GitHub: https://github.com/payalgatkal23
