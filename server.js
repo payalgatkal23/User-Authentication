@@ -1,41 +1,29 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const User = require("./models/user.js");
+const cors = require("cors");
+const User = require("./models/user");
 
 const app = express();
-const port = 3000;
 
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static("public"));
+mongoose.connect("mongodb://localhost:27017/L_R_Info")
+.then(()=>console.log("MongoDB Connected"));
 
-mongoose
-  .connect("mongodb://localhost:27017/L_R_Info")
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
-
-app.post("/register", async (req, res) => {
-  try {
-     const { email, password } = req.body;
-    const user = new User({ email, password });
+app.post("/register", async (req,res)=>{
+  const user = new User(req.body);
+  try{
     await user.save();
-    res.send("user Registered successfully");
-  } catch (error) {
-    res.send("email already exist !!");
+    res.send("User Registered");
+  }catch{
+    res.send("Email already exists");
   }
 });
 
-app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email, password });
-  if (user) {
-    res.send("Login Successful");
-  } else {
-    res.send("Invalid Email or Password");
-  }
+app.post("/login", async (req,res)=>{
+  const user = await User.findOne(req.body);
+  res.send(user ? "Login Successful" : "Invalid Email or Password");
 });
 
-app.listen(port, () => {
-  console.log(`Login/register application listening on port ${port}`);
-});
+app.listen(5000, ()=>console.log("Server running on port 5000"));
