@@ -10,7 +10,8 @@ app.use(express.json());
 
 mongoose
   .connect("mongodb://localhost:27017/L_R_Info")
-  .then(() => console.log("MongoDB Connected"));
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.error("MongoDB Connection Error:", err));
 
 app.post("/register", async (req, res) => {
   try {
@@ -31,7 +32,10 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const user = await User.findOne(req.body);
-  res.send(user ? "Login Successful" : "Invalid Email or Password");
+
+  res.json({
+    message: user ? "Login Successful" : "Invalid Email or Password"
+  });
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
