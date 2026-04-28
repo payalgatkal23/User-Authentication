@@ -1,6 +1,6 @@
 const User = require("../models/user");
 
-// Register
+
 exports.registerUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -18,7 +18,7 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-// Login
+
 exports.loginUser = async (req, res) => {
   const user = await User.findOne(req.body);
 
