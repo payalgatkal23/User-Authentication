@@ -13,6 +13,7 @@ A full-stack **MERN (MongoDB, Express, React, Node.js)** application that allows
 - MongoDB database for storing user data
 - Axios used for API communication
 - Basic form validation
+- Secure password storage using bcrypt hashing
 
 ---
 
@@ -102,6 +103,7 @@ npm start
 - React state management
 - Form handling
 - MongoDB data modeling
+- Password hashing using bcrypt
 
 ## 🚧 Future Improvements
 
