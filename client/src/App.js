@@ -5,15 +5,11 @@ import Register from "./components/Register";
 export default function App() {
   return (
     <BrowserRouter>
-
-      <Link to="/">Login</Link> | 
-      <Link to="/register">Register</Link>
-
+      <Link to="/">Login</Link> |<Link to="/register">Register</Link>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-
     </BrowserRouter>
   );
 }

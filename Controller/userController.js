@@ -1,5 +1,5 @@
 const User = require("../models/user");
-
+const bcrypt = require("bcrypt");
 
 exports.registerUser = async (req, res) => {
   try {
@@ -8,8 +8,13 @@ exports.registerUser = async (req, res) => {
     if (!email || !password) {
       return res.json({ message: "All fields are required" });
     }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ email, password });
+    const user = new User({
+      email,
+      password: hashedPassword,
+    });
+
     await user.save();
 
     res.json({ message: "User Registered" });
@@ -18,11 +23,23 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-
 exports.loginUser = async (req, res) => {
-  const user = await User.findOne(req.body);
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
-  res.json({
-    message: user ? "Login Successful" : "Invalid Email or Password"
-  });
+    if (!user) {
+      return res.json({ message: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({ message: "Invalid Password" });
+    }
+
+    res.json({ message: "Login Successful" });
+  } catch (err) {
+    res.json({ message: "Error occurred while logging in" });
+  }
 };

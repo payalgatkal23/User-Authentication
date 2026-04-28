@@ -13,8 +13,9 @@ export default function Login() {
       return;
     }
 
-    axios.post("http://localhost:5000/login", { email, password })
-      .then(res => alert(res.data.message))
+    axios
+      .post("http://localhost:5000/login", { email, password })
+      .then((res) => alert(res.data.message))
       .catch(() => alert("Error"));
   }
 
@@ -28,7 +29,8 @@ export default function Login() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <br /><br />
+      <br />
+      <br />
 
       <input
         type="password"
@@ -36,7 +38,8 @@ export default function Login() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <br /><br />
+      <br />
+      <br />
 
       <button>Login</button>
     </form>
