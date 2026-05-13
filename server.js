@@ -13,6 +13,6 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-app.use("/", userRoutes);
+app.use("/api", userRoutes);
 
 app.listen(5000, () => console.log("Server running on port 5000"));
